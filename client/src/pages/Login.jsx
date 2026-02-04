@@ -69,7 +69,7 @@ const Login = () => {
     <div className="min-h-screen flex items-center justify-center bg-base-200">
       <div className="card w-full max-w-md bg-base-100 shadow-xl">
         <div className="card-body">
-          <h2 className="card-title justify-center font-bold">Login</h2>
+          <h2 className="card-title justify-center text-center mb-3 font-bold">Login</h2>
 
           {error && (
             <div className="alert alert-error">
@@ -80,7 +80,7 @@ const Login = () => {
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Email</span>
+                <span className="label-text font-bold">Email</span>
               </label>
               <input
                 type="email"
@@ -93,7 +93,7 @@ const Login = () => {
 
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Password</span>
+                <span className="label-text font-bold">Password</span>
               </label>
               <input
                 type="password"

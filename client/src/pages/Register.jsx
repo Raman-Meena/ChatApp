@@ -84,13 +84,13 @@ const Register = () => {
     <div className="min-h-screen flex items-center justify-center bg-base-200">
       <div className="card w-full max-w-md bg-base-100 shadow-xl">
         <div className="card-body">
-          <h2 className="card-title justify-center font-bold">Create Account</h2>
+          <h2 className="card-title justify-center text-center mb-3 font-bold">Create Account</h2>
 
           <form onSubmit={handleSubmit} className="space-y-4">
             {/* Full Name */}
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Full Name</span>
+                <span className="label-text font-bold">Full Name</span>
               </label>
               <input
                 type="text"
@@ -109,7 +109,7 @@ const Register = () => {
             {/* Email */}
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Email</span>
+                <span className="label-text font-bold">Email</span>
               </label>
               <input
                 type="email"
@@ -128,7 +128,7 @@ const Register = () => {
             {/* Mobile */}
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Mobile Number</span>
+                <span className="label-text font-bold">Mobile Number</span>
               </label>
               <input
                 type="tel"
@@ -147,7 +147,7 @@ const Register = () => {
             {/* Password */}
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Password</span>
+                <span className="label-text font-bold">Password</span>
               </label>
               <input
                 type="password"
@@ -166,7 +166,7 @@ const Register = () => {
             {/* Confirm Password */}
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Confirm Password</span>
+                <span className="label-text font-bold">Confirm Password</span>
               </label>
               <input
                 type="password"
@@ -193,6 +193,16 @@ const Register = () => {
               </button>
             </div>
           </form>
+
+          <p className="text-center text-sm mt-4">
+            Already have an account?{" "}
+            <button
+              onClick={() => navigate("/login")}
+              className="link link-primary"
+            >
+              Login
+            </button>
+          </p>
         </div>
       </div>
     </div>

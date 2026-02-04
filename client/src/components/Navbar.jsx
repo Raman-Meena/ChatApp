@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { RiChatAiLine } from "react-icons/ri";
 
 const Navbar = () => {
   const [theme, setTheme] = useState("");
@@ -20,10 +21,13 @@ const Navbar = () => {
   return (
     <>
       <div className="bg-primary flex justify-between px-5 py-2 font-bold items-center">
-        <h1 className="text-xl">ChatKaro</h1>
+        <div className="flex items-center gap-2 text-base-content">
+          <span className="text-2xl"><RiChatAiLine/></span>
+          <h1 className="text-2xl font-extrabold">ChatNest</h1>
+        </div>
         <div className="flex gap-3">
-          <span>Home</span>
-          <span>About</span>
+          <span className="hover:text-primary-content cursor-pointer">Home</span>
+          <span className="hover:text-primary-content cursor-pointer">About</span>
         </div>
 
         <div className="flex gap-3">
