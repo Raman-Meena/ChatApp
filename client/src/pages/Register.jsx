@@ -84,7 +84,7 @@ const Register = () => {
     <div className="min-h-screen flex items-center justify-center bg-base-200">
       <div className="card w-full max-w-md bg-base-100 shadow-xl">
         <div className="card-body">
-          <h2 className="card-title justify-center text-center mb-3 font-bold">Create Account</h2>
+          <h2 className="card-title justify-center text-center mb-3 font-bold text-primary text-3xl">Create Account</h2>
 
           <form onSubmit={handleSubmit} className="space-y-4">
             {/* Full Name */}

@@ -28,6 +28,7 @@ const Navbar = () => {
         <div className="flex gap-3">
           <span className="hover:text-primary-content cursor-pointer">Home</span>
           <span className="hover:text-primary-content cursor-pointer">About</span>
+          <span className="hover:text-primary-content cursor-pointer">Contact</span>
         </div>
 
         <div className="flex gap-3">

@@ -2,9 +2,26 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import api from "../config/Api";
+import { useGoogleAuth } from "../config/GoogleAuth";
+import { FcGoogle } from "react-icons/fc";
 
 const Login = () => {
   const navigate = useNavigate();
+
+  const { isLoading, error, isInitialized, signInWithGoogle } = useGoogleAuth();
+
+  const handleGoogleSuccess = async (userData) => {
+    console.log("Google Login Data", userData);
+  };
+
+  const GoogleLogin = () => {
+    signInWithGoogle(handleGoogleSuccess, handleGoogleFailure);
+  };
+
+  const handleGoogleFailure = (error) => {
+    console.error("Google login failed:", error);
+    toast.error("Google login failed. Please try again.");
+  };
 
   const [formData, setFormData] = useState({
     email: "",
@@ -12,7 +29,6 @@ const Login = () => {
   });
 
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -69,7 +85,9 @@ const Login = () => {
     <div className="min-h-screen flex items-center justify-center bg-base-200">
       <div className="card w-full max-w-md bg-base-100 shadow-xl">
         <div className="card-body">
-          <h2 className="card-title justify-center text-center mb-3 font-bold">Login</h2>
+          <h2 className="card-title justify-center text-center mb-3 font-bold text-primary text-3xl">
+            Login
+          </h2>
 
           {error && (
             <div className="alert alert-error">
@@ -123,6 +141,31 @@ const Login = () => {
               </button>
             </div>
           </form>
+
+          <div className="mt-4">
+            {error ? (
+              <button
+                className="btn btn-outline btn-error font-sans flex items-center justify-center gap-2 w-full"
+                disabled
+              >
+                <FcGoogle className="text-xl" />
+                {error}
+              </button>
+            ) : (
+              <button
+                onClick={GoogleLogin}
+                className="btn btn-outline font-sans flex items-center justify-center gap-2 w-full"
+                disabled={!isInitialized || isLoading}
+              >
+                <FcGoogle className="text-xl" />
+                {isLoading
+                  ? "Loading..."
+                  : isInitialized
+                    ? "Continue with Google"
+                    : "Google Auth Error"}
+              </button>
+            )}
+          </div>
 
           <p className="text-center text-sm mt-4">
             Don’t have an account?{" "}
